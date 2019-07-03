@@ -43,7 +43,7 @@
 其中 `IP地址 -> 城市` 使用了https://github.com/wzhe06/ipdatabase。
 
 #### 2.数据处理
-- 统计最受欢迎课程的 Top N 访问次数
+- 统计最受欢迎课程的 Top N 访问次数（N=5）
 ```
 dataDF.groupBy("day", "cmsId")
 	.agg(count("cmsId").as("times"))
@@ -58,12 +58,9 @@ dataDF.groupBy("day", "cmsId")
 |20170511|14704|286  |
 |20170511|4500 |283  |
 |20170511|14390|278  |
-|20170511|14322|269  |
-|20170511|4600 |266  |
-|20170511|4000 |261  |
 +--------+-----+-----+
 ```
-- 按地市（根据IP）统计最受欢迎的 Top 3 访问次数
+- 按地市（根据IP）统计最受欢迎的 Top N 访问次数（N=3）
 ``` 
 TODO
 dataDF.groupBy("day", "city", "cmsId")
@@ -91,7 +88,7 @@ dataDF.groupBy("day", "city", "cmsId")
 |20170511|安徽省 |14390|57   |3         |
 +--------+----+-----+-----+----------+
 ```
-- 按流量统计最受欢迎的 Top N 课程
+- 按流量统计最受欢迎的 Top N 课程（N=5）
 ```
 dataDF.groupBy("day", "cmsId")
 	.agg(sum("traffic").as("traffics"))
@@ -106,14 +103,14 @@ dataDF.groupBy("day", "cmsId")
 |20170511|4500 |142781  |
 |20170511|14390|141713  |
 |20170511|14704|141266  |
-|20170511|14322|135977  |
-|20170511|4600 |134971  |
-|20170511|4000 |129270  |
 +--------+-----+--------+
 ```
 
 #### 3.数据存储
 
-
+在 MySQL 数据库中建立 `day_video_access_topn_stat`、 `day_video_city_access_topn_stat` 、`day_video_traffics_topn_stat` 表，将处理结果存入其中。
 
 #### 4.数据可视化
+使用 [ECharts](https://echarts.baidu.com) 模板展示统计数据，通过后端获取数据，展示在web页面。
+- 最受欢迎的 Top 5 课程
+![top 5](top5.png)
