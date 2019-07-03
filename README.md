@@ -29,6 +29,10 @@
 ```
 183.162.52.7 - - [10/Nov/2016:00:01:02 +0800] "POST /api3/getadv HTTP/1.1" 200 813 "www.imooc.com" "-" cid=0&timestamp=1478707261865&uid=2871142&marking=androidbanner&secrect=a6e8e14701ffe9f6063934780d9e2e6d&token=f51e97d1cb1a9caac669ea8acc162b96 "mukewang/5.0.0 (Android 5.1.1; Xiaomi Redmi 3 Build/LMY47V),Network 2G/3G" "-" 10.100.134.244:80 200 0.027 0.027
 ```
+| 左对齐标题 | 右对齐标题 | 居中对齐标题 |
+| :------| ------: | :------: |
+| 短文本 | 中等文本 | 稍微长一点的文本 |
+| 稍微长一点的文本 | 短文本 | 中等文本 |
 
 初步清洗：
 | Date | URL | Traffic| IP |
